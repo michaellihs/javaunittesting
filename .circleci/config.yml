@@ -11,6 +11,7 @@ jobs:
             - gradle-{{ checksum "build.gradle" }}
       - run: gradle assemble
       - run: gradle test
+      - run: gradle executeFeatures
       - save_cache:
           paths:
             - ~/.gradle

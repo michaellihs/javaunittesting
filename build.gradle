@@ -14,14 +14,27 @@ repositories {
     mavenCentral()
 }
 
+project.ext {
+    cucumberVersion = '4.2.5'
+}
+
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    testCompile 'io.cucumber:cucumber-java:' + cucumberVersion
+    testCompile 'io.cucumber:cucumber-junit:' + cucumberVersion
+}
+
+// see https://stackoverflow.com/questions/48463024/cucumber-unable-to-run-tests-using-runner
+task executeFeatures(type: JavaExec, dependsOn: testClasses) {
+    main = "cucumber.api.cli.Main"
+    classpath += files(sourceSets.test.runtimeClasspath)
+    args += [ '-p', 'pretty', '-g', 'ch.lihsmi.javaunittesting', 'src/test/resources/features'] 
 }
 
 test {
     useJUnitPlatform()
-    
+
     // configure nicer log output for test results
     // see https://stackoverflow.com/a/36130467
     testLogging {
