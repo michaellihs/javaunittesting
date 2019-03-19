@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ch.lihsmi.javaunittesting.StackTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-03-19T07:31:00" hostname="meckbuck.local" time="0.008">
+  <properties/>
+  <testcase name="elementCanBeInsertedInStack()" classname="ch.lihsmi.javaunittesting.StackTest" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
